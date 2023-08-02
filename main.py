@@ -30,7 +30,7 @@ file_dependencies = get_files_dependencies(
 
 communities_current = group_files_to_communities(file_dependencies.keys())
 metrics_current = calculate_community_metrics(communities_current, file_dependencies)
-save_communities_in_file(communities_current, "./output/communities_current.json")
+save_communities_in_file(communities_current, "./output/modules_current.json")
 with open("./output/metrics_current.json", "w") as json_file:
     json.dump(metrics_current, json_file, indent=2)
 
@@ -43,7 +43,7 @@ communities_greedy = detect_communities_for_files_by_greedy_modularity(
     file_dependencies
 )
 metrics_greedy = calculate_community_metrics(communities_greedy, file_dependencies)
-save_communities_in_file(communities_greedy, "./output/communities_greedy.json")
+save_communities_in_file(communities_greedy, "./output/modules_greedy.json")
 with open("./output/metrics_greedy.json", "w") as json_file:
     json.dump(metrics_greedy, json_file, indent=2)
 
@@ -51,6 +51,6 @@ with open("./output/metrics_greedy.json", "w") as json_file:
 
 communities_louvain = detect_communities_for_files_by_louvain(file_dependencies)
 metrics_louvain = calculate_community_metrics(communities_louvain, file_dependencies)
-save_communities_in_file(communities_louvain, "./output/communities_louvain.json")
+save_communities_in_file(communities_louvain, "./output/modules_louvain.json")
 with open("./output/metrics_louvain.json", "w") as json_file:
     json.dump(metrics_louvain, json_file, indent=2)
